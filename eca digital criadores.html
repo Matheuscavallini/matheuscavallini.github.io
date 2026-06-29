@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ECA Digital · Alvará Judicial para Criadores de Conteúdo | Sançana & Cavallini</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold:     #B8975A;
+    --gold-l:   #D4AF72;
+    --gold-d:   #8C6F3A;
+    --dark:     #1A1A1A;
+    --charcoal: #2D2D2D;
+    --mid:      #4A4A4A;
+    --muted:    #7A7A7A;
+    --light:    #F5F2EE;
+    --cream:    #FAF8F5;
+    --border:   #E0D8CC;
+    --white:    #FFFFFF;
+    --wpp:      #25D366;
+    --wpp-d:    #1DA851;
+    --warn:     #C0392B;
+    --warn-l:   rgba(192,57,43,0.08);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    color: var(--dark);
+    background: var(--cream);
+    line-height: 1.7;
+  }
+
+  /* ── ALERTA TOPO ── */
+  .alert-bar {
+    background: var(--warn);
+    color: #fff;
+    text-align: center;
+    padding: 10px 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  .alert-bar strong { text-decoration: underline; }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--dark);
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 72px;
+    border-bottom: 2px solid var(--gold);
+  }
+  .logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .logo-img {
+    height: 44px;
+    width: auto;
+    filter: brightness(0) invert(1);
+  }
+  .logo-divider {
+    width: 1px;
+    height: 32px;
+    background: rgba(184,151,90,0.4);
+  }
+  .logo-tag {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    line-height: 1.4;
+  }
+  .header-cta {
+    background: transparent;
+    border: 1.5px solid var(--gold);
+    color: var(--gold);
+    border-radius: 3px;
+    padding: 9px 22px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background .2s, color .2s;
+    white-space: nowrap;
+  }
+  .header-cta:hover { background: var(--gold); color: var(--dark); }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--dark);
+    color: var(--white);
+    padding: 80px 32px 72px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center top, rgba(184,151,90,0.13) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .hero-label {
+    display: inline-block;
+    border: 1px solid rgba(184,151,90,0.5);
+    color: var(--gold);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 2px;
+    margin-bottom: 32px;
+  }
+  .hero h1 {
+    font-size: clamp(26px, 5vw, 50px);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    max-width: 780px;
+    margin: 0 auto 10px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold-l);
+  }
+  .hero-rule {
+    width: 48px;
+    height: 2px;
+    background: var(--gold);
+    margin: 24px auto;
+  }
+  .hero-sub {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: clamp(15px, 2vw, 17px);
+    color: rgba(255,255,255,0.7);
+    max-width: 600px;
+    margin: 0 auto 44px;
+    line-height: 1.8;
+  }
+  .btn-wpp {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--wpp);
+    color: #fff;
+    border-radius: 3px;
+    padding: 16px 36px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    transition: background .2s, transform .15s;
+    box-shadow: 0 4px 24px rgba(37,211,102,0.28);
+  }
+  .btn-wpp:hover { background: var(--wpp-d); transform: translateY(-1px); }
+  .hero-note {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 11px;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-top: 16px;
+  }
+
+  /* ── PLATAFORMAS ── */
+  .plat-bar {
+    background: var(--charcoal);
+    border-bottom: 1px solid rgba(184,151,90,0.2);
+    padding: 20px 32px;
+    text-align: center;
+  }
+  .plat-bar p {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.38);
+    margin-bottom: 12px;
+  }
+  .plat-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .plat-tag {
+    background: rgba(192,57,43,0.1);
+    border: 1px solid rgba(192,57,43,0.35);
+    color: #E87B6F;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 4px 13px;
+    border-radius: 2px;
+  }
+
+  /* ── CASO REAL ── */
+  .case-sec {
+    background: var(--light);
+    padding: 72px 32px;
+    border-top: 1px solid var(--border);
+  }
+  .container { max-width: 860px; margin: 0 auto; }
+  .section-label {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-size: clamp(22px, 3.5vw, 34px);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--dark);
+    margin-bottom: 16px;
+  }
+  .section-rule {
+    width: 36px;
+    height: 2px;
+    background: var(--gold);
+    margin-bottom: 28px;
+  }
+  .section-body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 16px;
+    color: var(--mid);
+    line-height: 1.8;
+    max-width: 640px;
+    margin-bottom: 32px;
+  }
+
+  .case-card {
+    background: var(--white);
+    border-left: 4px solid var(--warn);
+    padding: 28px 28px 28px 24px;
+    margin-bottom: 16px;
+  }
+  .case-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 10px;
+  }
+  .case-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .case-card h3 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--warn);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+  }
+  .case-card .case-plat {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .case-card p {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 14px;
+    color: var(--mid);
+    line-height: 1.7;
+  }
+  .case-card p strong { color: var(--dark); }
+  .case-detail {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* ── O QUE MUDOU ── */
+  .context-sec {
+    background: var(--white);
+    padding: 72px 32px;
+  }
+  .context-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 32px;
+  }
+  @media(max-width:600px){ .context-grid { grid-template-columns: 1fr; } }
+  .ctx-card {
+    background: var(--cream);
+    border-top: 3px solid var(--gold);
+    padding: 24px 22px;
+  }
+  .ctx-card.danger { border-top-color: var(--warn); background: var(--warn-l); }
+  .ctx-card h3 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .ctx-card.danger h3 { color: var(--warn); }
+  .ctx-card p {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 14px;
+    color: var(--mid);
+    line-height: 1.7;
+  }
+
+  /* ── QUEM PRECISA ── */
+  .who-sec {
+    background: var(--light);
+    padding: 72px 32px;
+  }
+  .who-intro {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 15px;
+    color: var(--mid);
+    line-height: 1.8;
+    max-width: 640px;
+    margin-bottom: 32px;
+  }
+  .who-intro strong { color: var(--dark); }
+
+  /* Grid de perfis */
+  .profile-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 40px;
+  }
+  @media(max-width:640px){ .profile-grid { grid-template-columns: 1fr 1fr; } }
+  @media(max-width:400px){ .profile-grid { grid-template-columns: 1fr; } }
+  .profile-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 18px 16px;
+    text-align: center;
+  }
+  .profile-emoji { font-size: 26px; margin-bottom: 8px; }
+  .profile-card h4 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 4px;
+    letter-spacing: 0.02em;
+  }
+  .profile-card p {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
+  /* checklist */
+  .checklist { display: flex; flex-direction: column; gap: 2px; }
+  .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--border);
+    background: var(--white);
+  }
+  .check-item:first-child { border-top: 1px solid var(--border); }
+  .check-num {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    background: var(--gold);
+    color: var(--white);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+  }
+  .check-item p {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 15px;
+    color: var(--dark);
+    line-height: 1.65;
+  }
+  .check-item p strong { font-weight: 700; }
+
+  /* ── ATENÇÃO: PRAZO ── */
+  .prazo-sec {
+    background: var(--dark);
+    padding: 48px 32px;
+    text-align: center;
+    border-top: 1px solid rgba(192,57,43,0.4);
+    border-bottom: 1px solid rgba(192,57,43,0.4);
+  }
+  .prazo-label {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #E87B6F;
+    margin-bottom: 12px;
+  }
+  .prazo-title {
+    font-size: clamp(18px, 3vw, 28px);
+    font-weight: 700;
+    color: var(--white);
+    max-width: 600px;
+    margin: 0 auto 16px;
+    line-height: 1.25;
+  }
+  .prazo-body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 15px;
+    color: rgba(255,255,255,0.55);
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.75;
+  }
+  .prazo-body strong { color: #E87B6F; font-weight: 700; }
+
+  /* ── COMO FUNCIONA ── */
+  .how-sec {
+    background: var(--charcoal);
+    padding: 72px 32px;
+  }
+  .how-sec .section-title { color: var(--white); }
+  .how-sec .section-body { color: rgba(255,255,255,0.52); }
+  .steps { margin-top: 40px; display: flex; flex-direction: column; }
+  .step {
+    display: flex;
+    gap: 24px;
+    padding-bottom: 36px;
+  }
+  .step:last-child { padding-bottom: 0; }
+  .step-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .step-num {
+    width: 42px;
+    height: 42px;
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-vline {
+    flex: 1;
+    width: 1px;
+    background: rgba(184,151,90,0.2);
+    margin-top: 8px;
+  }
+  .step:last-child .step-vline { display: none; }
+  .step-content { padding-top: 8px; }
+  .step-content h3 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+  .step-content p {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 14px;
+    color: rgba(255,255,255,0.52);
+    line-height: 1.7;
+  }
+
+  /* ── EQUIPE ── */
+  .team-sec {
+    background: var(--light);
+    padding: 72px 32px;
+  }
+  .team-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 36px;
+  }
+  @media(max-width:560px){ .team-grid { grid-template-columns: 1fr; } }
+  .team-card {
+    background: var(--white);
+    padding: 32px 28px;
+    border-bottom: 3px solid var(--gold);
+    text-align: center;
+  }
+  .team-photo {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--gold);
+    margin: 0 auto 16px;
+    display: block;
+  }
+  .team-card h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 4px;
+  }
+  .team-card .oab {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .team-card p {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  /* ── CTA FINAL ── */
+  .cta-sec {
+    background: var(--dark);
+    text-align: center;
+    padding: 88px 32px;
+    border-top: 1px solid rgba(184,151,90,0.25);
+  }
+  .cta-sec .section-label { margin-bottom: 12px; }
+  .cta-sec .section-title { color: var(--white); max-width: 600px; margin: 0 auto 16px; }
+  .cta-sec > .container > p {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 16px;
+    color: rgba(255,255,255,0.55);
+    max-width: 480px;
+    margin: 0 auto 36px;
+    line-height: 1.8;
+  }
+  .contact-line {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 12px;
+    color: rgba(255,255,255,0.28);
+    letter-spacing: 0.08em;
+    margin-top: 20px;
+    text-transform: uppercase;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #111;
+    border-top: 1px solid rgba(184,151,90,0.12);
+    padding: 28px 32px;
+    text-align: center;
+  }
+  footer p {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 11px;
+    color: rgba(255,255,255,0.22);
+    line-height: 1.8;
+  }
+
+  /* ── FLUTUANTE MOBILE ── */
+  .float-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 18px;
+    background: var(--wpp);
+    color: #fff;
+    border-radius: 50px;
+    padding: 13px 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+    z-index: 999;
+    transition: background .2s;
+  }
+  .float-btn:hover { background: var(--wpp-d); }
+  @media(min-width:640px){ .float-btn { display: none; } }
+  .wpp-icon { flex-shrink: 0; }
+</style>
+</head>
+<body>
+
+<!-- ALERTA -->
+<div class="alert-bar">
+  ⚠️ &nbsp;Instagram, TikTok e YouTube já estão bloqueando canais sem alvará judicial — <strong>não espere a notificação chegar</strong>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="logo-wrap">
+    <img
+      class="logo-img"
+      src="https://scadvocaciadefamilia.com/wp-content/uploads/2021/04/607f0b1bd11a6.png"
+      alt="Sançana & Cavallini Advogados"
+    />
+    <div class="logo-divider"></div>
+    <div class="logo-tag">Direito Digital<br>ECA Digital</div>
+  </div>
+  <a class="header-cta"
+     href="https://wa.me/5516991404969?text=Ol%C3%A1%21+Vim+pela+p%C3%A1gina+do+ECA+Digital+e+gostaria+de+uma+avalia%C3%A7%C3%A3o+gratuita."
+     target="_blank">
+    Falar agora
+  </a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-label">ECA Digital · Lei nº 15.211/2025 · Plataformas bloqueando desde junho/2026</div>
+  <h1>Você vive do Instagram, TikTok ou YouTube?<br><em>Seu canal pode ser suspenso essa semana.</em></h1>
+  <div class="hero-rule"></div>
+  <p class="hero-sub">
+    Se seu filho aparece nos seus vídeos — mesmo que raramente — e você monetiza qualquer plataforma, o ECA Digital exige um alvará judicial. Sem ele, a plataforma suspende o canal sem aviso prévio.
+  </p>
+  <a class="btn-wpp"
+     href="https://wa.me/5516991404969?text=Ol%C3%A1%21+Vim+pela+p%C3%A1gina+do+ECA+Digital+e+gostaria+de+uma+avalia%C3%A7%C3%A3o+gratuita."
+     target="_blank">
+    <svg class="wpp-icon" width="22" height="22" viewBox="0 0 24 24" fill="none">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="#fff"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.552 4.107 1.516 5.837L.057 23.535a.5.5 0 00.61.61l5.698-1.459A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.804 9.804 0 01-5.003-1.369l-.358-.213-3.722.954.972-3.626-.234-.373A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z" fill="#fff"/>
+    </svg>
+    Solicitar avaliação gratuita
+  </a>
+  <p class="hero-note">Atendimento online · Sem compromisso · Primeira análise gratuita</p>
+</section>
+
+<!-- PLATAFORMAS -->
+<div class="plat-bar">
+  <p>Plataformas já suspendendo canais sem alvará</p>
+  <div class="plat-list">
+    <span class="plat-tag">Instagram</span>
+    <span class="plat-tag">TikTok</span>
+    <span class="plat-tag">YouTube</span>
+    <span class="plat-tag">Facebook</span>
+    <span class="plat-tag">Kwai</span>
+    <span class="plat-tag">Twitch</span>
+  </div>
+</div>
+
+<!-- CASO REAL -->
+<section class="case-sec">
+  <div class="container">
+    <div class="section-label">Isso já está acontecendo</div>
+    <h2 class="section-title">Canais reais foram suspensos. Sem aviso. Do nada.</h2>
+    <div class="section-rule"></div>
+    <p class="section-body">
+      Desde 17 de junho de 2026, as plataformas passaram a bloquear ativamente canais que não apresentaram o alvará judicial. Veja o que está acontecendo com criadores por todo o Brasil:
+    </p>
+
+    <div class="case-card">
+      <div class="case-header">
+        <div class="case-icon">📵</div>
+        <div>
+          <h3>Conta suspensa sem notificação prévia</h3>
+          <div class="case-plat">Instagram · Criadora de conteúdo de maternidade · 5 milhões de seguidores</div>
+        </div>
+      </div>
+      <p>
+        Uma influenciadora catarinense com mais de <strong>5 milhões de seguidores</strong> teve seu perfil suspenso pela Meta na última semana de junho de 2026. A suspensão aconteceu sem qualquer aviso dentro da plataforma — o que impediu a equipe de se antecipar. Segundo a assessoria, o alvará judicial já existia, mas não havia sido encaminhado à Meta por falta de orientação prévia sobre o procedimento.
+      </p>
+      <div class="case-detail">
+        "A suspensão ocorreu de forma inesperada. Até então, não havia sido recebida uma notificação diretamente na plataforma." — Assessoria da criadora, Junho/2026
+      </div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-header">
+        <div class="case-icon">⏱️</div>
+        <div>
+          <h3>20 dias para regularizar — ou o canal fecha</h3>
+          <div class="case-plat">Meta (Instagram / Facebook) · Acordo com o Ministério Público do Trabalho</div>
+        </div>
+      </div>
+      <p>
+        Com base no acordo firmado entre a Meta e o MPT, perfis notificados que não apresentarem o alvará dentro de <strong>20 dias têm a conta suspensa</strong>. Após esse prazo, o bloqueio se estende por mais 10 dias e a reativação se torna significativamente mais complexa e cara.
+      </p>
+      <div class="case-detail">
+        Recuperar uma conta após o bloqueio definitivo é muito mais difícil — e custoso — do que obter o alvará de forma preventiva.
+      </div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-header">
+        <div class="case-icon">📉</div>
+        <div>
+          <h3>Suspensão derruba o algoritmo — mesmo após reativação</h3>
+          <div class="case-plat">TikTok · YouTube · Instagram · Criadores de lifestyle e maternidade</div>
+        </div>
+      </div>
+      <p>
+        Mesmo quando a conta é reativada após a regularização, o algoritmo já foi prejudicado. Criadores relatam queda drástica no alcance orgânico, redução de recomendações e perda de posicionamento conquistado ao longo de anos. <strong>A suspensão deixa marcas que levam meses para se recuperar.</strong>
+      </p>
+      <div class="case-detail">
+        O prejuízo não é apenas imediato — é o custo acumulado de meses reconstruindo o alcance perdido.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- O QUE MUDOU -->
+<section class="context-sec">
+  <div class="container">
+    <div class="section-label">Entenda a lei</div>
+    <h2 class="section-title">O ECA Digital: o que mudou e o que isso significa para você.</h2>
+    <div class="section-rule"></div>
+    <p class="section-body">
+      A Lei nº 15.211/2025 entrou em vigor em março de 2026. Em junho, terminou o prazo de adaptação e as plataformas passaram a cumprir a exigência de suspensão imediata. A palavra-chave da lei é <em>habitualidade</em> — e ela é propositalmente ampla.
+    </p>
+    <div class="context-grid">
+      <div class="ctx-card danger">
+        <h3>⚠ Sem o alvará</h3>
+        <p>A monetização é suspensa imediatamente. O canal é bloqueado. A atividade pode ser enquadrada como trabalho infantil irregular — com responsabilidade jurídica para os pais ou responsáveis.</p>
+      </div>
+      <div class="ctx-card">
+        <h3>✦ Com o alvará</h3>
+        <p>A monetização é protegida, os contratos com marcas têm amparo legal e o canal opera com segurança jurídica. O processo é conduzido pela Vara da Infância e Juventude do município.</p>
+      </div>
+      <div class="ctx-card">
+        <h3>✦ O que é "habitual"?</h3>
+        <p>A lei não define um número exato de aparições. Isso é intencional. Se seu filho aparece com frequência — mesmo que não seja o protagonista do canal — a interpretação mais segura é obter o alvará.</p>
+      </div>
+      <div class="ctx-card danger">
+        <h3>⚠ Não é só family vlog</h3>
+        <p>Quem vende roupa, faz conteúdo de lifestyle, cozinha, viagens ou qualquer outro nicho e tem filhos que aparecem nos vídeos pode estar enquadrado. O produto vendido não importa — o que importa é a monetização.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUEM PRECISA -->
+<section class="who-sec">
+  <div class="container">
+    <div class="section-label">Você se enquadra?</div>
+    <h2 class="section-title">A lei não é só para influenciadores mirins. É para quem usa qualquer plataforma como fonte de renda.</h2>
+    <div class="section-rule"></div>
+    <p class="who-intro">
+      Você não precisa ser um <em>family vlogger</em> profissional para estar em risco. O ECA Digital alcança qualquer pessoa que <strong>monetize conteúdo</strong> em plataformas digitais e cujos filhos apareçam com frequência — independentemente do nicho, do tamanho do canal ou do tipo de renda obtida.
+    </p>
+
+    <div class="profile-grid">
+      <div class="profile-card">
+        <div class="profile-emoji">👗</div>
+        <h4>Vende roupas ou produtos online</h4>
+        <p>Usa o Instagram para divulgar e ocasionalmente aparece com os filhos</p>
+      </div>
+      <div class="profile-card">
+        <div class="profile-emoji">🍳</div>
+        <h4>Conteúdo de culinária ou rotina</h4>
+        <p>Filhos aparecem no fundo ou participam das gravações em casa</p>
+      </div>
+      <div class="profile-card">
+        <div class="profile-emoji">✈️</div>
+        <h4>Lifestyle e viagens</h4>
+        <p>Família viaja junto e aparece nos Reels ou vídeos do YouTube</p>
+      </div>
+      <div class="profile-card">
+        <div class="profile-emoji">💪</div>
+        <h4>Fitness e bem-estar</h4>
+        <p>Filhos aparecem eventualmente em stories ou vídeos no canal</p>
+      </div>
+      <div class="profile-card">
+        <div class="profile-emoji">🏠</div>
+        <h4>Decoração e reforma</h4>
+        <p>Conteúdo sobre a casa e família com crianças nas gravações</p>
+      </div>
+      <div class="profile-card">
+        <div class="profile-emoji">🎓</div>
+        <h4>Educação e maternidade</h4>
+        <p>Filhos participam das dinâmicas ou aparecem nos conteúdos educativos</p>
+      </div>
+    </div>
+
+    <div class="checklist">
+      <div class="check-item">
+        <div class="check-num">1</div>
+        <p>Você tem conta monetizada no Instagram, TikTok, YouTube ou qualquer outra plataforma — seja por AdSense, programa de parcerias, publicidade ou impulsionamento pago.</p>
+      </div>
+      <div class="check-item">
+        <div class="check-num">2</div>
+        <p>Seu filho <strong>aparece com frequência</strong> nos seus vídeos, Reels, stories ou qualquer outro formato — mesmo que não seja o foco principal do conteúdo.</p>
+      </div>
+      <div class="check-item">
+        <div class="check-num">3</div>
+        <p>Você <strong>recebeu ou pode receber uma notificação</strong> da plataforma solicitando o alvará judicial. O prazo para apresentar é de apenas 20 dias — após isso, a conta é bloqueada.</p>
+      </div>
+      <div class="check-item">
+        <div class="check-num">4</div>
+        <p>Você ainda <strong>não tem o alvará</strong> e não sabe ao certo se a sua situação exige regularização ou como iniciar o processo de forma correta e segura.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRAZO DE URGÊNCIA -->
+<div class="prazo-sec">
+  <div class="prazo-label">⚠ Atenção ao prazo</div>
+  <h2 class="prazo-title">Notificada pela plataforma? Você tem 20 dias para apresentar o alvará.</h2>
+  <p class="prazo-body">
+    Após a notificação, a plataforma aguarda <strong>20 dias</strong>. Se o documento não for entregue, a conta é suspensa em mais <strong>10 dias</strong>. Agir preventivamente é mais simples, mais rápido e mais barato do que recuperar um canal bloqueado.
+  </p>
+</div>
+
+<!-- COMO FUNCIONA -->
+<section class="how-sec">
+  <div class="container">
+    <div class="section-label" style="color: var(--gold);">O processo</div>
+    <h2 class="section-title">Como conduzimos a regularização do seu caso.</h2>
+    <div class="section-rule"></div>
+    <p class="section-body">
+      Com assessoria jurídica especializada, o caminho é claro, seguro e mais ágil do que aparenta. Atendemos de forma totalmente online.
+    </p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-left">
+          <div class="step-num">01</div>
+          <div class="step-vline"></div>
+        </div>
+        <div class="step-content">
+          <h3>Avaliação gratuita do caso</h3>
+          <p>Analisamos o perfil do canal, a frequência de aparição da criança e o tipo de monetização para confirmar o enquadramento e determinar a estratégia mais adequada para o seu caso específico.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-left">
+          <div class="step-num">02</div>
+          <div class="step-vline"></div>
+        </div>
+        <div class="step-content">
+          <h3>Organização documental</h3>
+          <p>Orientamos a coleta de todos os documentos necessários: identificação da criança e dos responsáveis, comprovante de matrícula escolar, histórico de rendimentos e descrição das atividades do canal.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-left">
+          <div class="step-num">03</div>
+          <div class="step-vline"></div>
+        </div>
+        <div class="step-content">
+          <h3>Protocolo na Vara da Infância</h3>
+          <p>Elaboramos e protocolamos o pedido de alvará junto à Vara da Infância e Juventude competente, com fundamentação no Art. 149, II do ECA e nas normas do Decreto nº 12.880/2026.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-left">
+          <div class="step-num">04</div>
+          <div class="step-vline"></div>
+        </div>
+        <div class="step-content">
+          <h3>Acompanhamento e concessão</h3>
+          <p>Monitoramos o andamento processual e comunicamos imediatamente a concessão. O alvará é então apresentado à plataforma para reativação ou manutenção da monetização do canal.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EQUIPE -->
+<section class="team-sec">
+  <div class="container">
+    <div class="section-label">Quem vai cuidar do seu caso</div>
+    <h2 class="section-title">Advogados especializados em Direito de Família e Digital.</h2>
+    <div class="section-rule"></div>
+    <div class="team-grid">
+      <div class="team-card">
+        <img
+          class="team-photo"
+          src="https://scadvocaciadefamilia.com/wp-content/uploads/2021/04/607f0b1bd1583.jpg"
+          alt="Dr. Matheus Cavallini"
+        />
+        <h3>Dr. Matheus Cavallini</h3>
+        <div class="oab">OAB/SP 426.295</div>
+        <p>Graduado pela Universidade de Franca. Especialista em Direito de Família. Membro da Comissão de Direito de Família da OAB/SP. Colunista jurídico.</p>
+      </div>
+      <div class="team-card">
+        <img
+          class="team-photo"
+          src="https://scadvocaciadefamilia.com/wp-content/uploads/2021/04/Gabriela.png"
+          alt="Dra. Gabriela Sançana"
+        />
+        <h3>Dra. Gabriela Sançana</h3>
+        <div class="oab">OAB/SP 414.886</div>
+        <p>Graduada pela Faculdade de Direito de Franca. Pós-graduada em Direito. Membro da Comissão de Direito de Família da OAB/SP.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-sec">
+  <div class="container">
+    <div class="section-label">Fale com o escritório</div>
+    <h2 class="section-title">Avaliação do seu caso — gratuita e sem compromisso.</h2>
+    <div class="section-rule" style="margin: 0 auto 20px;"></div>
+    <p>Conte sobre o seu canal e sua situação. Em poucos minutos você terá um diagnóstico jurídico claro e saberá exatamente o que precisa fazer — antes que a plataforma bloqueie.</p>
+    <a class="btn-wpp"
+       href="https://wa.me/5516991404969?text=Ol%C3%A1%21+Vim+pela+p%C3%A1gina+do+ECA+Digital+e+gostaria+de+uma+avalia%C3%A7%C3%A3o+gratuita."
+       target="_blank"
+       style="margin: 0 auto; display: inline-flex;">
+      <svg class="wpp-icon" width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="#fff"/>
+        <path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.552 4.107 1.516 5.837L.057 23.535a.5.5 0 00.61.61l5.698-1.459A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.804 9.804 0 01-5.003-1.369l-.358-.213-3.722.954.972-3.626-.234-.373A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z" fill="#fff"/>
+      </svg>
+      Falar pelo WhatsApp
+    </a>
+    <p class="contact-line">(16) 99140-4969 · Sançana &amp; Cavallini Advogados</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>
+    Sançana &amp; Cavallini Sociedade de Advogados · OAB/SP<br>
+    Praça Anita Garibaldi, nº 100, Centro — Batatais/SP · CEP 14300-073<br>
+    Esta página tem caráter informativo e não constitui assessoria jurídica individual. Para análise do caso concreto, consulte um advogado habilitado.<br>
+    © 2026 Sançana &amp; Cavallini · Todos os direitos reservados.
+  </p>
+</footer>
+
+<!-- FLUTUANTE MOBILE -->
+<a class="float-btn"
+   href="https://wa.me/5516991404969?text=Ol%C3%A1%21+Vim+pela+p%C3%A1gina+do+ECA+Digital+e+gostaria+de+uma+avalia%C3%A7%C3%A3o+gratuita."
+   target="_blank">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="#fff"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.552 4.107 1.516 5.837L.057 23.535a.5.5 0 00.61.61l5.698-1.459A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.804 9.804 0 01-5.003-1.369l-.358-.213-3.722.954.972-3.626-.234-.373A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z" fill="#fff"/>
+  </svg>
+  WhatsApp
+</a>
+
+</body>
+</html>
